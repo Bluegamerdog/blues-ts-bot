@@ -1,10 +1,14 @@
-import { Keys } from '../types'
+import { Keys } from '../types';
 
 const keys: Keys = {
-    clientToken: process.env.CLIENT_TOKEN ?? 'nil'
+  clientToken: process.env.CLIENT_TOKEN ?? '',
+  testGuild: process.env.TEST_GUILD ?? ''
+};
+
+if (Object.values(keys).length === 0) {
+  console.log(keys);
+  console.log(keys.clientToken);
+  throw new Error("No bot token found!")
 }
 
-if (Object.values(keys).includes('nil'))
-    throw new Error("Not all ENV variables are defined!")
-
-export default keys
+export default keys;
