@@ -14,7 +14,7 @@ export const Reply = {
             ephemeral: true,
             embeds: [{
                 color: Colors.error,
-                description:msg
+                description: msg
             }]
         }
     }
@@ -25,7 +25,7 @@ export const EditReply = {
         return {
             embeds: [{
                 color: Colors.error,
-                description:msg
+                description: msg
             }]
         }
     }

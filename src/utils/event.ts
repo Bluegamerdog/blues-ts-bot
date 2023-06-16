@@ -15,7 +15,7 @@ export function registerEvents(client: Client, events: Event<any>[]): void {
       const props = {
         client,
         log: (...args: unknown[]) =>
-          console.log(`[${event.id}]`, ...args) 
+          console.log(`[${event.id}]`, ...args)
       }
 
       // Catch uncaught errors

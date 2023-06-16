@@ -1,16 +1,16 @@
-import {config} from 'dotenv'
-import {resolve} from 'path'
+import { config } from 'dotenv'
+import { resolve } from 'path'
 
 config({ path: resolve(__dirname, '..', '..', '.env') })
 
-import {REST, Routes, APIUser} from 'discord.js'
+import { REST, Routes, APIUser } from 'discord.js'
 import commands from '../commands'
 import keys from '../keys'
 
-const body = commands.map(({ commands }) => 
+const body = commands.map(({ commands }) =>
     commands.map(({ meta }) => meta)).flat()
 
-const rest = new REST({ version: '10'}).setToken(keys.clientToken)
+const rest = new REST({ version: '10' }).setToken(keys.clientToken)
 
 async function main() {
     const currentUser = await rest.get(Routes.user()) as APIUser
@@ -19,7 +19,7 @@ async function main() {
         ? Routes.applicationCommands(currentUser.id)
         : Routes.applicationGuildCommands(currentUser.id, keys.testGuild)
 
-    await rest.put(endpoint, {body})
+    await rest.put(endpoint, { body })
 
     return currentUser
 }

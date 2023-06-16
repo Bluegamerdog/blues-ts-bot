@@ -1,3 +1,5 @@
 export * from './event'
 export * from './commands'
 export * from './replies'
+export * from './chunk'
+export * from './interaction'
